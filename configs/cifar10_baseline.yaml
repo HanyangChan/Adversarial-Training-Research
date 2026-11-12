@@ -1,0 +1,38 @@
+protocol: upstream_code_resnet18_cifar10
+seed: 0
+model: ResNet18
+data:
+  root: data
+  train_fraction: 1.0
+  sampling_reason: 공식 학습 데이터 50000장 전체 사용; 별도 검증 분할 없음.
+  workers: 0
+train:
+  epochs: 110
+  batch_size: 128
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+  milestones: [100, 105]
+  lr_gamma: 0.1
+  epsilon: 8
+  alpha: 8
+  beta: 0.6
+  inner_gamma: 0.15
+  outer_gamma: 0.15
+  lamda: 0.6
+  batch_m: 0.75
+  delta_init: random
+  relaxation_function: tan
+  preserve_momentum_overwrite: true
+  skip_partial_batch: true
+  save_from_epoch: 1
+feature_consistency:
+  enabled: false
+  weight: 0.1
+eval:
+  epsilon: 8
+  alpha: 2
+  epoch_pgd_steps: 10
+  pgd_steps: 20
+  restarts: 1
+  autoattack_version: standard

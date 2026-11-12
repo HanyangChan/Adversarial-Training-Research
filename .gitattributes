@@ -1,0 +1,2 @@
+# Preserve the exact upstream bytes, including CRLF, on every platform.
+vendor/TDAT/** -text

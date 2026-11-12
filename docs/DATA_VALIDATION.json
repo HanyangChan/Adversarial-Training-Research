@@ -1,0 +1,87 @@
+{
+  "source": "https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz",
+  "final_download_source": "https://cave.cs.toronto.edu/kriz/cifar-10-python.tar.gz",
+  "archive": "/workspace/Adversarial-Training-Research/data/cifar-10-python.tar.gz",
+  "md5": "c58f30108f718f92721af3b95e74349a",
+  "md5_verified": true,
+  "archive_bytes": 170498071,
+  "train_examples": 50000,
+  "test_examples": 10000,
+  "train_class_counts": [
+    5000,
+    5000,
+    5000,
+    5000,
+    5000,
+    5000,
+    5000,
+    5000,
+    5000,
+    5000
+  ],
+  "test_class_counts": [
+    1000,
+    1000,
+    1000,
+    1000,
+    1000,
+    1000,
+    1000,
+    1000,
+    1000,
+    1000
+  ],
+  "classes": [
+    "airplane",
+    "automobile",
+    "bird",
+    "cat",
+    "deer",
+    "dog",
+    "frog",
+    "horse",
+    "ship",
+    "truck"
+  ],
+  "batches": {
+    "train": {
+      "shape": [
+        128,
+        3,
+        32,
+        32
+      ],
+      "dtype": "torch.float32",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "test": {
+      "shape": [
+        128,
+        3,
+        32,
+        32
+      ],
+      "dtype": "torch.float32",
+      "minimum": 0.0,
+      "maximum": 1.0
+    }
+  },
+  "reduced_fraction": 0.1,
+  "reduced_examples": 5000,
+  "reduced_class_counts": [
+    500,
+    500,
+    500,
+    500,
+    500,
+    500,
+    500,
+    500,
+    500,
+    500
+  ],
+  "sampling_seed": 0,
+  "sampled_indices_sha256": "7957d060fcc34aefa5a43c70e31433927db55526494f67a9f7da553059be6767",
+  "training_executed": false
+}

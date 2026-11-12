@@ -1,0 +1,38 @@
+protocol: reduced_exploratory_not_paper_baseline
+seed: 0
+model: ResNet18
+data:
+  root: data
+  train_fraction: 0.1
+  sampling_reason: 클래스당 500장 층화 추출(10퍼센트); 계산 예산을 제한한 탐색용이며 테스트 10000장은 유지. 과제 결과에 사용하기 전 실제 GPU 예산을 확인할 것.
+  workers: 0
+train:
+  epochs: 110
+  batch_size: 128
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+  milestones: [100, 105]
+  lr_gamma: 0.1
+  epsilon: 8
+  alpha: 8
+  beta: 0.6
+  inner_gamma: 0.15
+  outer_gamma: 0.15
+  lamda: 0.6
+  batch_m: 0.75
+  delta_init: random
+  relaxation_function: tan
+  preserve_momentum_overwrite: true
+  skip_partial_batch: true
+  save_from_epoch: 1
+feature_consistency:
+  enabled: false
+  weight: 0.1
+eval:
+  epsilon: 8
+  alpha: 2
+  epoch_pgd_steps: 10
+  pgd_steps: 20
+  restarts: 1
+  autoattack_version: standard

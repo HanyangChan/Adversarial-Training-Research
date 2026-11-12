@@ -1,0 +1,130 @@
+{
+  "config": {
+    "protocol": "real_cifar_preflight_not_baseline_reproduction",
+    "seed": 0,
+    "model": "ResNet18",
+    "data": {
+      "root": "data",
+      "train_fraction": 1.0,
+      "sampling_reason": "\uacf5\uc2dd \ud559\uc2b5 \ub370\uc774\ud130 50000\uc7a5 \uc804\uccb4 \uc0ac\uc6a9; \ubcc4\ub3c4 \uac80\uc99d \ubd84\ud560 \uc5c6\uc74c.",
+      "workers": 0
+    },
+    "train": {
+      "epochs": 110,
+      "batch_size": 4,
+      "lr": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "milestones": [
+        100,
+        105
+      ],
+      "lr_gamma": 0.1,
+      "epsilon": 8,
+      "alpha": 8,
+      "beta": 0.6,
+      "inner_gamma": 0.15,
+      "outer_gamma": 0.15,
+      "lamda": 0.6,
+      "batch_m": 0.75,
+      "delta_init": "random",
+      "relaxation_function": "tan",
+      "preserve_momentum_overwrite": true,
+      "skip_partial_batch": true,
+      "save_from_epoch": 1
+    },
+    "feature_consistency": {
+      "enabled": true,
+      "weight": 0.1
+    },
+    "eval": {
+      "epsilon": 8,
+      "alpha": 2,
+      "epoch_pgd_steps": 10,
+      "pgd_steps": 20,
+      "restarts": 1,
+      "autoattack_version": "standard"
+    }
+  },
+  "seed": 0,
+  "git_commit": "UNCOMMITTED",
+  "git_dirty": true,
+  "upstream_commit": "2ce7bb0650584756a8bbb8deca575da4150718c4",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "torch": "2.5.1+cpu",
+  "device": "cpu",
+  "gpu": null,
+  "gpu_total_memory_bytes": null,
+  "status": "passed",
+  "diagnostic_steps_per_variant": 3,
+  "source_config": "configs/cifar10_baseline.yaml",
+  "purpose": "environment_and_model_test_only",
+  "variants": [
+    {
+      "feature_enabled": false,
+      "steps": 3,
+      "seconds": 1.3220426240000052,
+      "losses": [
+        {
+          "loss": 3.4434895515441895,
+          "inner": 2.3686046600341797,
+          "ce": 3.098578691482544,
+          "robust": 0.5748515129089355,
+          "feature": 0.0
+        },
+        {
+          "loss": 3.0589263439178467,
+          "inner": 1.7127467393875122,
+          "ce": 2.4043281078338623,
+          "robust": 1.0909970998764038,
+          "feature": 0.0
+        },
+        {
+          "loss": 4.28275203704834,
+          "inner": 3.074202299118042,
+          "ce": 3.1849775314331055,
+          "robust": 1.829624056816101,
+          "feature": 0.0
+        }
+      ]
+    },
+    {
+      "feature_enabled": true,
+      "steps": 3,
+      "seconds": 0.8936669870000173,
+      "losses": [
+        {
+          "loss": 3.480703353881836,
+          "inner": 2.3686046600341797,
+          "ce": 3.098578691482544,
+          "robust": 0.5748515129089355,
+          "feature": 0.37213850021362305
+        },
+        {
+          "loss": 3.081523895263672,
+          "inner": 1.7119252681732178,
+          "ce": 2.403193235397339,
+          "robust": 1.0842819213867188,
+          "feature": 0.27761363983154297
+        },
+        {
+          "loss": 4.488351345062256,
+          "inner": 3.0714964866638184,
+          "ce": 3.1954596042633057,
+          "robust": 2.064155340194702,
+          "feature": 0.5439872741699219
+        }
+      ]
+    }
+  ],
+  "elapsed_seconds": 4.629781057999992,
+  "train_examples_inspected": 4,
+  "test_examples_inspected": 4,
+  "pgd_requested_steps": 20,
+  "pgd_seconds": 0.051175185000005285,
+  "pgd_note": "upstream early-stop; may execute fewer steps on diagnostic weights",
+  "checkpoint_roundtrip": true,
+  "cuda_peak_allocated_bytes": null,
+  "cuda_peak_reserved_bytes": null
+}
